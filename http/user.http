@@ -1,0 +1,45 @@
+// GET all users
+GET http://localhost:3600/users
+Accept: application/json
+
+###
+// Create new user
+POST http://localhost:3600/users
+Content-Type: application/json
+
+{
+  "firstName" : "Test32",
+  "lastName" : "test",
+  "email" : "test04@test.com",
+  "password" : "12345"
+}
+
+###
+// PATCH existing user
+POST http://localhost:3600/users/637b782864b2ba1eb8adc86a
+Content-Type: application/json
+
+{
+  "firstName" : "Marcos",
+  "lastName" : "Silva",
+  "email" : "marcos.henrique@toptal.com",
+  "password" : "s3cr3tp4sswo4rd"
+}
+
+###
+// GET specific user
+GET http://localhost:3600/users/637b782864b2ba1eb8adc86a
+Accept: application/json
+
+###
+// POST credentials
+POST http://localhost:3600/auth
+Content-Type: application/json
+
+{
+  "email" : "test@test.com",
+  "password" : "1234"
+}
+
+###
+
