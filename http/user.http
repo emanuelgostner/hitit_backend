@@ -1,6 +1,7 @@
 // GET all users
 GET http://localhost:3600/users
 Accept: application/json
+Authorization: {{bearer}}
 
 ###
 // Create new user
@@ -8,19 +9,20 @@ POST http://localhost:3600/users
 Content-Type: application/json
 
 {
-  "firstName" : "Test32",
-  "lastName" : "test",
-  "email" : "test04@test.com",
-  "password" : "12345"
+  "firstName" : "paidUser",
+  "lastName" : "paidUser",
+  "email" : "paid.paid@gmail.com",
+  "password" : "123"
 }
 
 ###
 // PATCH existing user
-POST http://localhost:3600/users/637b782864b2ba1eb8adc86a
+PATCH http://localhost:3600/users/6380e91fba67b23b786d8af6
 Content-Type: application/json
+Authorization: {{bearer}}
 
 {
-  "firstName" : "Marcos",
+  "firstName" : "teeee",
   "lastName" : "Silva",
   "email" : "marcos.henrique@toptal.com",
   "password" : "s3cr3tp4sswo4rd"
@@ -28,17 +30,34 @@ Content-Type: application/json
 
 ###
 // GET specific user
-GET http://localhost:3600/users/637b782864b2ba1eb8adc86a
+GET http://localhost:3600/users/6380e91fba67b23b786d8af6
 Accept: application/json
+Authorization: {{bearer}}
 
 ###
-// POST credentials
+// DELETE specific user
+DELETE http://localhost:3600/users/637d18e381dacb47dc4ef5cc
+Accept: application/json
+Authorization: {{bearer}}
+
+###
+// POST authentication
 POST http://localhost:3600/auth
 Content-Type: application/json
 
 {
-  "email" : "test@test.com",
-  "password" : "1234"
+  "email" : "gostner.emanuel@gmail.com",
+  "password" : "123"
+}
+
+###
+// POST authentication
+POST http://localhost:3600/auth
+Content-Type: application/json
+
+{
+  "email" : "paid.paid@gmail.com",
+  "password" : "123"
 }
 
 ###

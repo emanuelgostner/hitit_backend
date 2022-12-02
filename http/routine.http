@@ -1,0 +1,125 @@
+// Create new routine
+POST http://localhost:3600/routines
+Content-Type: application/json
+Authorization: {{ bearer }}
+
+{
+  "id": "123",
+  "title": "Ab Training",
+  "public": true,
+  "creator": "6380c48b3977124810ba15a6",
+  "intervals": [
+    {
+      "id": "1",
+      "exercise": "Bodyweight Crunch",
+      "duration": 10,
+      "rest": 5,
+      "repetitions": 1
+    },
+    {
+      "id": "2",
+      "exercise": "Reverse Crunch",
+      "duration": 10,
+      "rest": 5,
+      "repetitions": 1
+    },
+    {
+      "id": "13",
+      "exercise": "Oblique Heel Taps",
+      "duration": 10,
+      "rest": 5,
+      "repetitions": 1
+    },
+    {
+      "id": "14",
+      "exercise": "Oblique Heel Taps",
+      "duration": 10,
+      "rest": 5,
+      "repetitions": 1
+    },
+    {
+      "id": "15",
+      "exercise": "Side Crunches",
+      "duration": 10,
+      "rest": 5,
+      "repetitions": 1
+    },
+    {
+      "id": "61",
+      "exercise": "Explosive Sit-Ups",
+      "duration": 10,
+      "rest": 5,
+      "repetitions": 1
+    },
+    {
+      "id": "17",
+      "exercise": "Plank Knee Ins",
+      "duration": 10,
+      "rest": 5,
+      "repetitions": 1
+    },
+    {
+      "id": "18",
+      "exercise": "Plank Rotations",
+      "duration": 10,
+      "rest": 5,
+      "repetitions": 1
+    },
+    {
+      "id": "91",
+      "exercise": "Russian Rotations",
+      "duration": 10,
+      "rest": 5,
+      "repetitions": 1
+    },
+    {
+      "id": "111",
+      "exercise": "Mountain climbers",
+      "duration": 10,
+      "rest": 5,
+      "repetitions": 1
+    }
+  ]
+}
+
+###
+// GET public routines
+GET http://localhost:3600/routines
+Content-Type: application/json
+Authorization: {{ bearer }}
+
+###
+// GET user routines
+GET http://localhost:3600/routines/6380c48b3977124810ba15a6
+Content-Type: application/json
+Authorization: {{ bearer }}
+
+###
+// PATCH routine
+PATCH http://localhost:3600/routines/6389dc397085a92d2c863762
+Content-Type: application/json
+Authorization: {{ bearer }}
+
+{
+  "id": "123",
+  "title": "PATCHED",
+  "public": true,
+  "creator": "6380c48b3977124810ba15a6",
+  "intervals": [
+    {
+      "id": "1",
+      "exercise": "Bodyweight Crunch",
+      "duration": 10,
+      "rest": 5,
+      "repetitions": 1
+    }
+  ]
+}
+
+###
+// DELETE routine
+DELETE http://localhost:3600/routines/6389dc3c7085a92d2c863764
+Content-Type: application/json
+Authorization: {{ bearer }}
+
+###
