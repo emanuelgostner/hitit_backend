@@ -1,5 +1,4 @@
 const mongoose = require('../../common/services/mongoose.service').mongoose;
-require('../../users/models/users.model')
 const Schema = mongoose.Schema;
 const { ObjectId } = mongoose.Schema;
 
@@ -42,8 +41,9 @@ exports.findById = (id) => {
 };
 
 exports.createRoutine = (routineData) => {
+    routineData.creator = routineData.creator.userId
     const routine = new Routine(routineData);
-    return routine.save();
+    return routine.save().then(t => t.populate('creator').execPopulate())
 };
 
 exports.list = (perPage, page) => {
@@ -69,6 +69,7 @@ exports.list = (perPage, page) => {
 exports.listByUser = (perPage, page, userId) => {
     return new Promise((resolve, reject) => {
         Routine.find({ creator: userId})
+            .populate('creator')
             .limit(perPage)
             .skip(perPage * page)
             .exec(function (err, routines) {
@@ -85,6 +86,7 @@ exports.patchRoutine = (id, routineData) => {
     return Routine.findOneAndUpdate({
         _id: id
     }, routineData);
+    // return Routine.findByIdAndUpdate (id, routineData, {populate: {path: 'creator'}});
 };
 
 exports.removeById = (routineId) => {

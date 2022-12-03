@@ -5,7 +5,7 @@ exports.insert = (req, res) => {
     try {
         RoutineModel.createRoutine(req.body)
             .then((result) => {
-                res.status(201).send({user: result});
+                res.status(201).send(result);
             });
     } catch (e) {
         console.log(e)
